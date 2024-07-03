@@ -1,7 +1,7 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei";
 
-const Model = ({ onClicked }) => {
+const Model = ({ onObjectClicked }) => {
   const { nodes, materials } = useGLTF("/main.gltf");
 
   return (
@@ -27,6 +27,7 @@ const Model = ({ onClicked }) => {
         />
       </group>
       <mesh
+        onClick={() => onObjectClicked("chair_one")}
         geometry={nodes.chair_one.geometry}
         material={materials.chair}
         position={[-4.547, 1.572, -0.391]}
@@ -34,6 +35,7 @@ const Model = ({ onClicked }) => {
         scale={[1.213, 1, 1]}
       />
       <mesh
+        onClick={() => onObjectClicked("chair_two")}
         geometry={nodes.chair_two.geometry}
         material={materials.chair}
         position={[-1.415, 1.572, -3.41]}
@@ -41,6 +43,7 @@ const Model = ({ onClicked }) => {
         scale={[1.213, 1, 1]}
       />
       <mesh
+        onClick={() => onObjectClicked("plates")}
         geometry={nodes.plates.geometry}
         material={materials.plate}
         position={[-2.201, 2.51, 0.271]}
@@ -48,7 +51,7 @@ const Model = ({ onClicked }) => {
         scale={0.349}
       />
       <mesh
-        onClick={onClicked}
+        onClick={() => onObjectClicked("table")}
         geometry={nodes.table.geometry}
         material={materials.table}
         position={[-1.9, 2.387, -0.071]}
