@@ -14,7 +14,17 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Suspense fallback={<Fallback />}>
-      <Scene />
+      <Canvas
+        camera={{
+          fov: 8,
+          zoom: 0.1,
+          near: 0.1,
+          far: 1000,
+          position: [2, 0, 5],
+        }}
+      >
+        <Scene />
+      </Canvas>
       {/* <Span /> */}
     </Suspense>
   </React.StrictMode>

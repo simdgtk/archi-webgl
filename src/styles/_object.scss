@@ -1,0 +1,70 @@
+@import './variables';
+
+.site-container {
+  position: fixed;
+  display: flex;
+  width: fit-content;
+  justify-content: flex-end;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  animation: slideIn 0.2s ease-out forwards;
+}
+
+.object {
+  background-color: $bg-color;
+  color: $black;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+
+  h2 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%) scaleY(0.98) scaleX(0.98);
+    }
+
+    to {
+      transform: translateX(0) scaleY(0.98) scaleX(0.98);
+    }
+  }
+
+
+
+  .info-object {
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    animation: slideIn 0.2s ease-out forwards;
+
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 50vw;
+    background-color: $bg-color;
+    transition: transform 0.2s ease-in;
+    padding: 4.5rem;
+
+    .object-texts {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .head-infos {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+
+      .infos-flex {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+}
