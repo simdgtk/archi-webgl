@@ -25,7 +25,7 @@ export default function Fallback() {
     <div className="fallback">
       <div className="loader">
         <h1>The scene is loading...</h1>
-        <span>{progress.toPrecision(2)} %</span>
+        <span>{progress < 98 ? progress.toPrecision(2) : 98} %</span>
       </div>
       <div className="info">
         <p dangerouslySetInnerHTML={{ __html: infoTexts[currentInfo] }}></p>

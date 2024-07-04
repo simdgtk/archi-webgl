@@ -52,8 +52,8 @@ canvas {
   color: white;
   font-size: 1rem;
   position: fixed;
-  z-index: 999;
-  transform: translate(-50%, 140%);
+  z-index: 5;
+  transform: translateX(-50%);
   bottom: 1rem;
   left: 50%;
   width: fit-content;

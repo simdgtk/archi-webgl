@@ -3,31 +3,18 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, CameraControls } from "@react-three/drei";
 import * as THREE from "three";
 import Model from "./Model";
+import Span from "./Span";
+import artworks from "../data/artworks.json";
 
 export default function Scene() {
   const [clickedObject, setClickedObject] = useState(null);
+  const [showInfoSpan, setShowInfoSpan] = useState(true);
+  const [data, setData] = useState(null);
 
   const handleObjectClick = (objectName) => {
+    setData(artworks[objectName]);
     setClickedObject(objectName);
-  };
-
-  const renderObjectInfo = () => {
-    switch (clickedObject) {
-      case "table":
-        return (
-          <>
-            <h2>Table</h2>
-          </>
-        );
-      case "chair_one":
-        return <h2>Chair 1</h2>;
-      case "chair_two":
-        return <h2>Chair 2</h2>;
-      case "plates":
-        return <h2>Plates</h2>;
-      default:
-        return null;
-    }
+    setShowInfoSpan(false);
   };
 
   return (
@@ -45,39 +32,35 @@ export default function Scene() {
         }}
       >
         <OrbitControls makeDefault />
-        <pointLight intensity={40} />
+        <pointLight intensity={10} />
         <directionalLight position={[2, 5, 2]} intensity={7} color={0xe7e7e7} />
         <CameraControls />
-        <Model onObjectClicked={handleObjectClick} />
+        <Model onObjectClicked={handleObjectClick} table />
       </Canvas>
+      {showInfoSpan && <Span />}
       {clickedObject && (
         <div className="site-container object">
           <div className="info-object">
             <div className="object-texts">
               <div className="head-infos">
-                {renderObjectInfo()}
-                <span>2002, Ineke Hans</span>
+                {data.title && <h2>{data.title}</h2>}
+                <span>
+                  {data.date_start}, {data.artist_title}
+                </span>
               </div>
               <div className="infos-flex">
-                <span>Dimensions : 3 × 21 cm</span>
-                <span>Medium : Black porcelain </span>
+                {data.dimensions_detail[0].height && (
+                  <span>
+                    Dimensions: {data.dimensions_detail[0].height} ×{" "}
+                    {data.dimensions_detail[0].width} cm
+                  </span>
+                )}
+                {data.medium_display && (
+                  <span>Medium: {data.medium_display}</span>
+                )}
               </div>
-              <p>
-                Manufactured by Ineke Hans/Arnhem <br></br> Dutch, founded 1998
-              </p>
-              <p>
-                After decades as a representational painter, in her seventies
-                Alma Thomas turned to abstraction, creating shimmering,
-                mosaic-like fields of color with rhythmic dabs of paint that
-                were often inspired by forms from nature. The artist had been
-                fascinated with space exploration since the late 1960s, and her
-                later paintings often referenced America’s manned Apollo
-                missions to the moon. Although she had never flown, Thomas began
-                to paint as if she were in an airplane, capturing what she
-                described as shifting patterns of light and streaks of color.
-                “You look down on things,” she explained. “You streak through
-                the clouds so fast. . . .
-              </p>
+              <p>{data.artist_display}</p>
+              <p dangerouslySetInnerHTML={{ __html: data.description }}></p>
             </div>
             <p>
               Source,{" "}

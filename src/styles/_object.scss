@@ -17,6 +17,7 @@
 
 .object {
   background-color: $bg-color;
+  z-index: 999;
   color: $black;
   font-family: 'Satoshi', sans-serif;
   font-weight: 400;

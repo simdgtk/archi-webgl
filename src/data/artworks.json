@@ -1,0 +1,92 @@
+{
+  "197531": {
+    "title": "Black Gold Plate",
+    "artist_title": "Ineke Hans",
+    "date_start": 2002,
+    "dimensions_detail": [
+      {
+        "depth": null,
+        "width": 21,
+        "height": 3,
+        "diameter": null,
+        "clarification": null
+      }
+    ],
+    "artist_display": "Ineke Hans (Dutch, born 1966)\nManufactured by Ineke Hans/Arnhem (Dutch, founded 1998)",
+    "description": "\u003Cp\u003EIneke Hans’s Black Gold Coffee collection explores the concept of “modular” porcelain. Starting with the basic technique of “gluing” pieces with slip clay, Hans worked out a modular system that includes just five basic shapes: a narrow cylinder, a medium cylinder, a big cylinder, a corner, and a “plunger.” From these forms, she assembled an entire coffee set, turning the shapes so that they could be used in different ways. For instance, the “plunger” serves as both a cup handle and the spout of a coffee pot. The work is also technically impressive for its successful use of black porcelain, which is difficult to produce because clays that are infused with black pigment tend to be distorted in the kiln when fired.\u003C/p\u003E\n",
+    "medium_display": "Black porcelain"
+  },
+  "201626": {
+    "title": "Venus Chair",
+    "date_start": 2006,
+    "artist_display": "Konstantin Grcic (German, born 1965)\nManufactured by ClassiCon (German, founded 1990)",
+    "description": "<p>Made from bent plywood, the Venus Chair looks, on first glance, as if it is the inner core of the Mars Chair. Further exploration, however, reveals that while its geometries were influenced by the Mars Chair, instead of mimicking the earlier design\u2019s exact nature, its contoured form is a more streamlined rendition made from a simple, graceful assembly that is surprisingly lightweight.<\/p>\n",
+    "dimensions_detail": [
+      {
+        "depth": 52,
+        "width": 52,
+        "height": 81,
+        "diameter": null,
+        "clarification": null
+      }
+    ],
+    "medium_display": "Laminated plywood, oak veneer, rubber",
+    "artist_title": "Konstantin Grcic"
+  },
+  "237824": {
+    "artist_title": "Philippe Starck",
+    "medium_display": "Polished aluminum",
+    "title": "Juicy Salif Juicer",
+    "date_start": 1990,
+    "dimensions_detail": [
+      {
+        "depth": 12,
+        "width": 12,
+        "height": 29,
+        "diameter": null,
+        "clarification": null
+      }
+    ],
+    "artist_display": "Philippe Starck\nFrench, born 1949\nManufactured by Alessi (Italian, founded 1921)",
+    "description": null
+  },
+  "104090": {
+    "title": "Coffee Table",
+    "medium_display": "Walnut",
+    "date_start": 1967,
+    "description": null,
+    "dimensions_detail": [
+      {
+        "depth_cm": 90.8,
+        "depth_in": 35.5,
+        "width_cm": 113.6,
+        "width_in": 45,
+        "height_cm": 47.5,
+        "height_in": 19,
+        "diameter_cm": 0,
+        "diameter_in": 0,
+        "clarification": null
+      }
+    ],
+    "artist_display": "Wendell Castle\nAmerican, 1932–2018",
+    "artist_title": "Wendell Castle"
+  },
+  "89403": {
+    "title": "Untitled #12",
+    "date_start": 1977,
+    "artist_display": "Agnes Martin\nAmerican, born Canada, 1912-2004",
+    "description": "\u003Cp\u003EEarly in her career, Agnes Martin identified with her contemporaries Barnett Newman and Ad Reinhardt, sharing with them an interest in monochromatic color schemes, geometric forms, and spiritual or emotional content. In the 1960s Martin stopped making art and moved to rural New Mexico. When she resumed painting in 1974, her consistent vocabulary of grids and lines began to reflect her surround-ings. \u003Cem\u003EUntitled #12\u003C/em\u003E—part of a series of Is square canvases painted in 1977—is a hand-drawn graphite grid on a muted gray ground that quietly invites a slow study of gradation and light.\u003C/p\u003E\n",
+    "short_description": "Martin aligned herself with Abstract Expressionists, admiring their chromatic color schemes, allover compositions, and emotional content. In the 1960s, she developed a vocabulary of grids and graphs which evoked the simplicity and intellectualism of Minimalist artists. This work's graphite grid may seem like an exemplar of Minimalism, but close observation reveals a flickering light, suggesting a spiritual rather than purely aesthetic stance.",
+    "dimensions_detail": [
+      {
+        "depth": null,
+        "width": 182,
+        "height": 182,
+        "diameter": null,
+        "clarification": null
+      }
+    ],
+    "medium_display": "India ink, graphite, and gesso on canvas",
+    "artist_title": "Agnes Martin"
+  }
+}
