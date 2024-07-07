@@ -35,6 +35,12 @@ export default function Scene() {
           cameraRef.current.updateProjectionMatrix();
         },
       });
+      gsap.from("#title", {
+        opacity: 0,
+        x: -10,
+        duration: 0.3,
+        ease: "power3.inOut",
+      });
     } else {
       setData(null);
       setClickedObject(null);
@@ -92,7 +98,7 @@ export default function Scene() {
           <div className="info-object">
             <div className="object-texts">
               <div className="head-infos">
-                {data.title && <h2>{data.title}</h2>}
+                {data.title && <h2 id="title">{data.title}</h2>}
                 <span>
                   {data.date_start}, {data.artist_title}
                 </span>
