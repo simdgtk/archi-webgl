@@ -7,7 +7,6 @@ function App() {
   return (
     <Suspense fallback={<Fallback />}>
       <Scene />
-      {/* <Span /> */}
     </Suspense>
   );
 }

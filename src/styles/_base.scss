@@ -60,6 +60,22 @@ canvas {
   height: auto;
   user-select: none;
 
+  .info-span-mobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 800px) {
+    .info-span-desktop {
+      display: none;
+
+    }
+
+
+    .info-span-mobile {
+      display: block;
+    }
+  }
+
   &.hidden {
     display: none;
   }
@@ -96,6 +112,11 @@ canvas {
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    min-width: 400px;
+
+    h1 {
+      text-align: center;
+    }
   }
 
   .info {

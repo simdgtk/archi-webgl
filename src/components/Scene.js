@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { OrbitControls, Environment, CameraControls } from "@react-three/drei";
 import Model from "./Model";
 import Span from "./Span";
 import artworks from "../data/artworks.json";
 import gsap from "gsap";
-import { AxesHelper } from "three";
 
 export default function Scene() {
   const [clickedObject, setClickedObject] = useState(null);
@@ -14,58 +13,57 @@ export default function Scene() {
   const [data, setData] = useState(null);
   const cameraRef = useRef();
   const canvasRef = useRef();
+
   useEffect(() => {
     const interval = setInterval(() => {
       console.log("position :", cameraRef.current.position);
     }, 1000);
 
     return () => clearInterval(interval);
-  });
+  }, []);
 
   const handleObjectClick = (objectName, objectPosition) => {
     console.log(artworks[objectName].title);
     console.log("objectposition :", objectPosition);
+
     if (data !== artworks[objectName]) {
       setData(artworks[objectName]);
       setClickedObject(objectName);
       setObjectPosition(objectPosition);
       setShowInfoSpan(false);
-      cameraRef.current.lookAt([0, 2, 0]);
-
-      // gsap.to(cameraRef.current.position, {
-      //   x: objectPosition.x,
-      //   y: objectPosition.y,
-      //   z: objectPosition.z - 2,
-      //   duration: 1,
-      //   ease: "power3.inOut",
-      // });
-      // gsap.to(cameraRef.current.rotation, {
-      //   y: 180,
-      //   duration: 1,
-      //   ease: "power3.inOut",
-      // });
-      /*
-      2.000002946466787
-
-y: 2.480766004703261e-7
-​
-z: 5.99999699914473 */
-      // gsap.to(cameraRef.current.rotation, {
-      //   x: objectPosition.x,
-      //   y: objectPosition.y,
-      //   z: objectPosition.z,
-      //   duration: 1,
-      //   ease: "power3.inOut",
-      // });
+      gsap.to(cameraRef.current.position, {
+        x: 2,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "power3.inOut",
+      });
+      gsap.to(cameraRef.current, {
+        zoom: 2,
+        duration: 1,
+        ease: "power3.inOut",
+        onUpdate: () => {
+          cameraRef.current.updateProjectionMatrix();
+        },
+      });
     } else {
       setData(null);
       setClickedObject(null);
+
       gsap.to(cameraRef.current.position, {
         x: 2,
         y: 0,
         z: 6,
         duration: 1,
         ease: "power3.inOut",
+      });
+      gsap.to(cameraRef.current, {
+        zoom: 1,
+        duration: 1,
+        ease: "power3.inOut",
+        onUpdate: () => {
+          cameraRef.current.updateProjectionMatrix();
+        },
       });
     }
   };
@@ -74,8 +72,7 @@ z: 5.99999699914473 */
     <>
       <Canvas
         camera={{
-          fov: 8,
-          zoom: 0.1,
+          fov: 75,
           near: 0.1,
           far: 1000,
           position: [2, 0, 6],
@@ -92,8 +89,8 @@ z: 5.99999699914473 */
           backgroundIntensity={4}
           backgroundBlurriness={1}
         />
-        <axesHelper scale={[1, 1, 1]} />
-        <OrbitControls />
+        <OrbitControls enableDamping maxDistance={12} />
+
         <directionalLight position={[2, 5, 2]} intensity={2} color={0xe7e7e7} />
         <Model
           onObjectClicked={handleObjectClick}
@@ -123,7 +120,10 @@ z: 5.99999699914473 */
                 )}
               </div>
               <p>{data.artist_display}</p>
-              <p dangerouslySetInnerHTML={{ __html: data.description }}></p>
+              <div
+                className="text-container"
+                dangerouslySetInnerHTML={{ __html: data.description }}
+              ></div>
             </div>
             <p>
               Source,{" "}
@@ -142,6 +142,17 @@ z: 5.99999699914473 */
                 z: 6,
                 duration: 1,
                 ease: "power3.inOut",
+                onUpdate: () => {
+                  cameraRef.current.lookAt(0, 0, 0);
+                },
+              });
+              gsap.to(cameraRef.current, {
+                zoom: 1,
+                duration: 1,
+                ease: "power3.inOut",
+                onUpdate: () => {
+                  cameraRef.current.updateProjectionMatrix();
+                },
               });
             }}
             xmlns="http://www.w3.org/2000/svg"
