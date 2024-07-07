@@ -17,7 +17,7 @@ export default function Fallback() {
       setCurrentInfo((currentInfo) => (currentInfo + 1) % infoTexts.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  });
 
   const { progress } = useProgress();
 

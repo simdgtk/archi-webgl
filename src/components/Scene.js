@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment, CameraControls } from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 import Model from "./Model";
 import Span from "./Span";
 import artworks from "../data/artworks.json";
@@ -14,18 +14,7 @@ export default function Scene() {
   const cameraRef = useRef();
   const canvasRef = useRef();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      console.log("position :", cameraRef.current.position);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   const handleObjectClick = (objectName, objectPosition) => {
-    console.log(artworks[objectName].title);
-    console.log("objectposition :", objectPosition);
-
     if (data !== artworks[objectName]) {
       setData(artworks[objectName]);
       setClickedObject(objectName);
@@ -39,7 +28,7 @@ export default function Scene() {
         ease: "power3.inOut",
       });
       gsap.to(cameraRef.current, {
-        zoom: 2,
+        zoom: 1.6,
         duration: 1,
         ease: "power3.inOut",
         onUpdate: () => {
@@ -72,7 +61,7 @@ export default function Scene() {
     <>
       <Canvas
         camera={{
-          fov: 75,
+          fov: 70,
           near: 0.1,
           far: 1000,
           position: [2, 0, 6],

@@ -104,7 +104,7 @@ const Model = ({ onObjectClicked, clickedObject }) => {
           )}
         </mesh>
       </group>
-      <mesh geometry={nodes.Cube.geometry} material={materials.door}>
+      <mesh geometry={nodes.Cube.geometry} material={materials.door} roughness={0}>
         {clickedObject && <meshStandardMaterial color={grey} roughness={1} />}
       </mesh>
       <mesh geometry={nodes.Cube_1.geometry} material={materials.mur}>
