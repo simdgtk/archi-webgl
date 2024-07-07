@@ -10,7 +10,10 @@ const Model = ({ onObjectClicked, clickedObject }) => {
     const objectPosition = event.object.position;
     onObjectClicked(objectName, objectPosition);
   };
+  materials.table.roughness = 0.2;
+  materials.table.metalness = 1;
 
+  materials.door.roughness = 0.12;
   return (
     <group
       dispose={null}
@@ -104,7 +107,7 @@ const Model = ({ onObjectClicked, clickedObject }) => {
           )}
         </mesh>
       </group>
-      <mesh geometry={nodes.Cube.geometry} material={materials.door} roughness={0}>
+      <mesh geometry={nodes.Cube.geometry} material={materials.door}>
         {clickedObject && <meshStandardMaterial color={grey} roughness={1} />}
       </mesh>
       <mesh geometry={nodes.Cube_1.geometry} material={materials.mur}>
