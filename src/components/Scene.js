@@ -35,11 +35,12 @@ export default function Scene() {
           cameraRef.current.updateProjectionMatrix();
         },
       });
-      gsap.from("#title", {
+      gsap.from(".text", {
         opacity: 0,
         x: -10,
         duration: 0.3,
         ease: "power3.inOut",
+        stagger: 0.03,
       });
     } else {
       setData(null);
@@ -98,12 +99,12 @@ export default function Scene() {
           <div className="info-object">
             <div className="object-texts">
               <div className="head-infos">
-                {data.title && <h2 id="title">{data.title}</h2>}
-                <span>
+                {data.title && <h2 className="text">{data.title}</h2>}
+                <span className="text">
                   {data.date_start}, {data.artist_title}
                 </span>
               </div>
-              <div className="infos-flex">
+              <div className="infos-flex text">
                 {data.dimensions_detail[0].height && (
                   <span>
                     Dimensions: {data.dimensions_detail[0].height} ×{" "}
@@ -114,9 +115,9 @@ export default function Scene() {
                   <span>Medium: {data.medium_display}</span>
                 )}
               </div>
-              <p>{data.artist_display}</p>
+              <p className="text">{data.artist_display}</p>
               <div
-                className="text-container"
+                className="text-container text"
                 dangerouslySetInnerHTML={{ __html: data.description }}
               ></div>
             </div>
