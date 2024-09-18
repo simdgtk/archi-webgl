@@ -1,5 +1,17 @@
 @import './variables';
 
+* {
+  ::-moz-selection {
+    color: $bg-color;
+    background: $black;
+  }
+
+  ::selection {
+    color: $bg-color;
+    background: $black;
+  }
+}
+
 html,
 body,
 #root {
@@ -16,8 +28,13 @@ body,
 
 a {
   text-decoration: underline;
+  text-decoration-thickness: 1.5px;
   color: inherit;
   text-underline-offset: 4px;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 canvas,
@@ -30,7 +47,7 @@ canvas,
 }
 
 canvas {
-  cursor: crosshair;
+  cursor: default;
 }
 
 .label>div {
@@ -40,7 +57,7 @@ canvas {
   font-family: Helvetica, sans-serif;
   position: absolute;
   background: #00000036;
-  color: white;
+  color: $bg-color;
   padding: 15px;
   border-radius: 30px;
   user-select: none;
@@ -49,7 +66,7 @@ canvas {
 }
 
 .info-span {
-  color: white;
+  color: $bg-color;
   font-size: 1rem;
   position: fixed;
   z-index: 5;
